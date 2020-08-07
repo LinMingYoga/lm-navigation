@@ -10,7 +10,6 @@ function Toutiao(props) {
   const [state, setState] = useState(false)
   function getWangyi(keyword) {
     setData([])
-    setState(true)
     $http.getNews(keyword).then(res => {
       setData(res.data.list)
       setState(false)
@@ -73,6 +72,7 @@ function Toutiao(props) {
   /* start 函数防抖 */
   var timeout = null
   function selcetNews(e) {
+    setState(true)
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       getWangyi(e.target.value)
