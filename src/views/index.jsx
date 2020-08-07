@@ -84,7 +84,7 @@ function ToDoList () {
             <div className="w footer-info">
               <a
                 rel="noopener noreferrer"
-                href="https://github.com/LinMingYoga/todoList"
+                href="https://github.com/LinMingYoga/lm-navigation"
                 target="_blank"
               >
                 <GithubOutlined className="github" />
