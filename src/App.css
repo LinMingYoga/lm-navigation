@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.lm-list {
+  background-color: #fff;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------------ */
+.lm-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #282c34;
+}
+.lm-page .ant-layout-header {
+  background: none;
+}
+.lm-page .ant-layout-content {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-color: #ccc;
+}
+.w {
+  width: 1300px;
+  margin: 0 auto;
+  height: 100%;
+}
+.lm-tabs {
+  width: 100%;
+}
+.spczCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lm-poetry {
+  margin-top: 50px;
+}
+.lm-news {
+  display: flex;
+  justify-content: space-around;
+}
+.ant-layout-content {
+  position: relative;
+}
+.ant-layout-footer {
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  bottom: 0;
+  background: none !important;
+}
+.footer-info {
+  /* width: 100%; */
+  height: 50px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .4) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.github {
+  font-size: 20px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  /* 纵向滚动条*/
+  height: 5px;
+  /* 横向滚动条 */
+  background-color: #fff;
+}
+
+.ant-layout-header {
+  line-height: normal;
+}
+
+/*定义滚动条轨道 内阴影*/
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: #fff;
+}
+
+/*定义滑块 内阴影*/
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: #D5D5D5;
+}

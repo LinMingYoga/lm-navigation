@@ -1,0 +1,22 @@
+.sina {
+  /* width: 400px; */
+  width: 100%;
+}
+.sina .ant-list {
+  background-color: #fff;
+}
+.ant-spin-container {
+  height: auto;
+  max-height: 660px;
+  overflow-y:scroll;
+}
+.ant-list-item {
+  padding: 10px;
+}
+.ant-spin-container .ant-list-items>.ant-list-item .ant-list-item-main {
+  display: flex;
+  flex-direction: column;
+}
+.ant-list-item-main > .ant-list-item-action {
+  width: 100%;
+}

@@ -1,0 +1,8 @@
+.lm-search {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+.lm-search > .ant-input {
+  margin-right: 10px;
+}
