@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import { List, Radio  } from 'antd'
+import { List, Radio, Spin } from 'antd'
 import $http from '../../api/index'
 import './news.css'
 import QueueAnim from 'rc-queue-anim'
@@ -7,16 +7,22 @@ import QueueAnim from 'rc-queue-anim'
 function Toutiao(props) {
   // state
   const [data, setData] = useState([])
+  const [state, setState] = useState(false)
   function getWangyi(keyword) {
     setData([])
+    setState(true)
     $http.getNews(keyword).then(res => {
       setData(res.data.list)
+      setState(false)
     })
   }
   // 生命周期
   useEffect(() => {
     getWangyi('news')
   }, [])
+  useEffect(() => {
+    console.log('state', state)
+  }, [state])
   const items = [
     {
       label: '新闻',
@@ -69,7 +75,6 @@ function Toutiao(props) {
   function selcetNews(e) {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
-      console.log('radio3 checked', e.target.value)
       getWangyi(e.target.value)
     }, 1000);
   }
@@ -86,6 +91,7 @@ function Toutiao(props) {
             {tabs}
           </Radio.Group>
         </div>
+        < Spin spinning={state} delay={500} tip="小鸣正在努力加载中，请稍后...">
         <List
           // header={<div style={{ paddingLeft: '10px' }}>CCTV-新闻</div>}
           itemLayout="vertical"
@@ -103,6 +109,7 @@ function Toutiao(props) {
             </List.Item>
           )}
         />
+        </Spin>
       </QueueAnim>
     </div>
   )

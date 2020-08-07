@@ -10,8 +10,12 @@
 }
 .lm-search .lm-input {
   width: 100%;
+  margin: 0 auto;
   display: flex;
 }
 .lm-input .ant-select {
   width: 500px;
+}
+.userClick {
+  cursor: pointer;
 }
