@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "antd/dist/antd.css";
 import "../App.css";
 import "../assets/rest.css";
-import { Layout } from 'antd'
+import { Layout, Button } from 'antd'
 import { Tabs } from "antd";
 import { GithubOutlined } from "@ant-design/icons";
 
@@ -32,6 +32,9 @@ function ToDoList () {
         // setPoetryTitle(res.data.origin)
       }
     })
+  }
+  const toGithub = () => {
+    window.open('https://github.com/LinMingYoga/lm-navigation')
   }
   function getBg() {
     return new Promise((resolve, reject) => {
@@ -82,7 +85,7 @@ function ToDoList () {
           </div>
           <Footer>
             <div className="w footer-info">
-              <a
+              {/* <a
                 rel="noopener noreferrer"
                 href="https://github.com/LinMingYoga/lm-navigation"
                 target="_blank"
@@ -91,7 +94,12 @@ function ToDoList () {
               </a>
               <span style={{ fontSize: "12px", marginLeft: "10px" }}>
                 @LinMingYoga
-              </span>
+              </span> */}
+              <Button className="github" type="link"
+                onClick={toGithub}
+                icon={<GithubOutlined />}>
+                @LinMingYoga
+            </Button>
             </div>
           </Footer>
         </Content>
