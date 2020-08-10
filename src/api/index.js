@@ -11,4 +11,6 @@ export default {
   getHotWord: () => alapi.get('/tophub/wiki'),
   getBg: () => alapi.post('/bing', { format: 'json' }),
   getcctvNews: () => cctvnews.get('/page/news_1.jsonp?cb=news'),
+  getUserSuggest: () => LM.get(`/linming/api/getSuggest`),
+  setUserSuggest: data => LM.post(`/linming/api/userSuggest`, data),
 }
