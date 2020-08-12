@@ -4,6 +4,7 @@
 }
 .sina .ant-list {
   background-color: #fff;
+  width: auto;
 }
 .ant-spin-container {
   height: 660px;

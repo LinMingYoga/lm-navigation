@@ -25,7 +25,7 @@ function Factory({
     }
     return config
   }, error => {
-    alert('未知错误，请重新尝试！')
+    // alert('未知错误，请重新尝试！')
     return Promise.reject(error)
   })
 
@@ -39,7 +39,7 @@ function Factory({
     }
     return response.data
   }, error => {
-    alert('未知错误，请重新尝试！')
+    // alert('未知错误，请重新尝试！')
     return Promise.reject(error)
   })
   return $http

@@ -1,6 +1,6 @@
 import Factory from './axios'
 
 export default Factory({
-  // baseURL: 'http://localhost:5000/'
-  baseURL: window.origin
+  // baseURL: window.origin
+  baseURL: 'http://localhost:5000'
 }, d => !d)

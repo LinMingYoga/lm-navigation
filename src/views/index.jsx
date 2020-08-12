@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import "antd/dist/antd.css";
+import "antd/dist/antd.css"
 import "../App.css";
-import "../assets/rest.css";
-import { Layout, Button } from 'antd'
-import { Tabs } from "antd";
-import { GithubOutlined } from "@ant-design/icons";
+import "../assets/rest.css"
+import { Layout } from 'antd'
+import { Tabs } from "antd"
+import localBackgroud from '../assets/images/bg.jpg'
 
 // 引入API
 import $http from '../api/index'
@@ -12,7 +12,7 @@ import $http from '../api/index'
 import SearchInput from '../components/header/searchInput';
 import Toutiao from '../components/news/toutiao';
 import NavLink from '../components/navigation/index';
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const { TabPane } = Tabs;
 
 function ToDoList () {
@@ -22,36 +22,30 @@ function ToDoList () {
   // const [poetry, setPoetry] = useState('')
   // const [poetryTitle, setPoetryTitle] = useState('')
   // const [poet, setPoet] = useState('')
-
-  function getPoetry() {
-    $http.getShichi().then((res) => {
-      console.log('res', res)
-      if (res.code === 200) {
-        // setPoet(res.data.author)
-        // setPoetry(res.data.content)
-        // setPoetryTitle(res.data.origin)
-      }
-    })
-  }
-  const toGithub = () => {
-    window.open('https://github.com/LinMingYoga/lm-navigation')
-  }
-  function getBg() {
-    return new Promise((resolve, reject) => {
-      $http.getBg().then((res) => {
-        resolve(res.data.url)
-      });
-    })
-  }
+  // function getBg() {
+  //   return new Promise((resolve, reject) => {
+  //     $http.getBg().then((res) => {
+  //       resolve(res.data.url)
+  //     });
+  //   })
+  // }
+  // const setBg = () => {
+    
+  // }
   useEffect(() => {
-    getPoetry();
-    getBg().then(res => {
+    $http.getBg().then((res) => {
       setBackgroundImg(res);
       setBgStyle({
+        width: "100%",
         backgroundImage: `url('${backgroundImg}')`,
       })
-  })
-  }, [backgroundImg])
+    }).catch(() => {
+      setBgStyle({
+        width: "100%",
+        backgroundImage: `url('${localBackgroud}')`,
+      });
+    })
+  },[backgroundImg])
   function callback(key) {
     console.log(key);
   }
@@ -59,7 +53,7 @@ function ToDoList () {
     <div className="lm-page">
       <Layout>
         <SearchInput></SearchInput>
-        <Content style={bgStyle}>
+        <Content style={bgStyle} className="lm-content">
           <div className="w">
             <div className="lm-main spczCenter">
               <Tabs
@@ -83,25 +77,18 @@ function ToDoList () {
               </Tabs>
             </div>
           </div>
-          <Footer>
-            <div className="w footer-info">
-              {/* <a
-                rel="noopener noreferrer"
-                href="https://github.com/LinMingYoga/lm-navigation"
-                target="_blank"
-              >
-                <GithubOutlined className="github" />
-              </a>
-              <span style={{ fontSize: "12px", marginLeft: "10px" }}>
-                @LinMingYoga
-              </span> */}
-              <Button className="github" type="link"
+          {/* <Footer>
+            <div className="footer-info">
+              <Button
+                className="github"
+                type="link"
                 onClick={toGithub}
-                icon={<GithubOutlined />}>
+                icon={<GithubOutlined />}
+              >
                 @LinMingYoga
-            </Button>
+              </Button>
             </div>
-          </Footer>
+          </Footer> */}
         </Content>
       </Layout>
     </div>

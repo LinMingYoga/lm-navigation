@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, AutoComplete, Layout, Button, Row, Modal, Drawer, List, message } from 'antd';
-import { SearchOutlined, FormOutlined } from '@ant-design/icons';
+import { Form, Input, AutoComplete, Layout, Button, Row, Modal, Drawer, List, message, Col } from 'antd';
+import { SearchOutlined, FormOutlined, GithubOutlined } from '@ant-design/icons';
 import $http from '../../api'
 import './searchInput.css'
 
@@ -19,6 +19,9 @@ function SearchInput(props) {
   const [form] = Form.useForm()
   const [data, setData] = useState([])
 
+  const toGithub = () => {
+    window.open('https://github.com/LinMingYoga/lm-navigation')
+  }
   const onFinish = values => {
     console.log('Received values of form: ', values);
     $http.setUserSuggest(values).then(res => {
@@ -97,29 +100,42 @@ function SearchInput(props) {
     <Header>
       <div className="lm-search">
         <Row gutter={24} style={{width: '100%'}}>
-          <div className="lm-input" style={{width: '500px'}}>
-            <img width="50px" src={logoSvg} alt="logo" />
-            <AutoComplete
-              onSelect={onSelect}
-              onSearch={myoptions}
-              options={options}
-              allowClear
-              onChange={inputChange}
-              value={value}
-              placeholder="百度一下，你就知道！"
-            />
-            <Button style={{ marginLeft: '10px' }} onClick={Tosearch} type="primary" icon={<SearchOutlined />}>
-              搜索
-            </Button>
-          </div>
-          <div className="user-couple-back" >
-            {/* <FormOutlined onClick={isShowDrawer} className="userClick" /> */}
-            <Button type="link"
-             onClick={isShowDrawer}
-            icon = {<FormOutlined />}>
-              用户反馈
-            </Button>
-          </div>
+          <Col span={8}></Col>
+          <Col span={8}>
+            <div className="lm-input" style={{width: '500px'}}>
+              <img width="50px" src={logoSvg} alt="logo" />
+              <AutoComplete
+                onSelect={onSelect}
+                onSearch={myoptions}
+                options={options}
+                allowClear
+                onChange={inputChange}
+                value={value}
+                placeholder="百度一下，你就知道！"
+              />
+              <Button style={{ marginLeft: '10px' }} onClick={Tosearch} type="primary" icon={<SearchOutlined />}>
+                搜索
+              </Button>
+            </div>
+          </Col>
+          <Col span={8} style={{textAlign: 'right'}}>
+            <div className="user-couple-back" >
+              <Button type="link"
+              className="github"
+              onClick={isShowDrawer}
+              icon = {<FormOutlined />}>
+                用户反馈
+              </Button>
+              <Button
+                  className="github"
+                  type="link"
+                  onClick={toGithub}
+                  icon={<GithubOutlined />}
+                >
+                  @LinMingYoga
+                </Button>
+            </div>
+          </Col>
         </Row>
       </div>
       <Modal

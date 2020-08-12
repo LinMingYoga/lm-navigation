@@ -44,15 +44,23 @@
 .lm-page {
   width: 100%;
   height: 100vh;
+  box-sizing: border-box;
   background-color: #282c34;
 }
 .lm-page .ant-layout-header {
-  background: none;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  background-color: #282c34;
 }
 .lm-page .ant-layout-content {
   width: 100%;
-  height: calc(100vh - 100px);
-  background-color: #ccc;
+  height: 100vh;
+  background-color: #20232a;
+  padding-top: 100px;
+  background-size: cover;
+  background-position: center 0;
 }
 .w {
   width: 1300px;
@@ -75,22 +83,21 @@
   display: flex;
   justify-content: space-around;
 }
-.ant-layout-content {
-  position: relative;
-}
+/* .ant-layout-content {
+  
+} */
 .ant-layout-footer {
-  padding: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 2;
+  position: fixed;
   bottom: 0;
+  padding: 0;
+  width: 100%;
+  /* background-color: #282c34; */
   background: none !important;
 }
 .footer-info {
   /* width: 100%; */
-  height: 50px;
+  /* height: 50px; */
   color: #fff;
-  /* background-color: rgba(0, 0, 0, .4) !important; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +111,7 @@
   /* 纵向滚动条*/
   height: 5px;
   /* 横向滚动条 */
-  background-color: #fff;
+  background-color: #20232a;
 }
 
 .ant-layout-header {
